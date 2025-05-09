@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order Now</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Noto Sans Bengali', sans-serif;
+      color: rgb(0, 0, 0);
+    }
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    .payment-methods {
+      display: flex;
+      justify-content: space-around;
+      margin: 20px 0;
+      position: relative;
+      transition: .5s;
+    }
+    .payment-method {
+      text-align: center;
+      cursor: pointer;
+      transition: .5s;
+    }
+    .payment-method img {
+      width: 80px;
+      height: 40px;
+      position: relative;
+      transition: .5s;
+      border-radius: 20%;
+    }
+    /* ------------------Image-shake------------------ */
+    .payment-method:hover {
+      color: yellowgreen;
+    /* Start the shake animation and make the animation last for 0.5 seconds */
+    animation: shake 0.5s;
+    /* When the animation is finished, start again */
+    animation-iteration-count: infinite;
+    }
+    @keyframes shake {
+      0% { transform: translate(1px, 1px) rotate(0deg); }
+      10% { transform: translate(-1px, -2px) rotate(-1deg); }
+      20% { transform: translate(-3px, 0px) rotate(1deg); }
+      30% { transform: translate(3px, 2px) rotate(0deg); }
+      40% { transform: translate(1px, -1px) rotate(1deg); }
+      50% { transform: translate(-1px, 2px) rotate(-1deg); }
+      60% { transform: translate(-3px, 1px) rotate(0deg); }
+      70% { transform: translate(3px, 1px) rotate(-1deg); }
+      80% { transform: translate(-1px, -1px) rotate(1deg); }
+      90% { transform: translate(1px, 2px) rotate(0deg); }
+      100% { transform: translate(1px, -2px) rotate(-1deg); }
+    }
+    /* ------------------Image-shake------------------ */
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    .item{
+        display: none;
+    }
+    label {
+      margin-top: 10px;
+      margin-bottom: 5px;
+      color: #555;
+    }
+    input, select {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      color: aqua;
+      background-color: rgb(154, 0, 168);
+      font-weight: 600;
+    }
+    .instructions {
+      background-color: #e9ecef;
+      padding: 15px;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+
+    .bkash-payment-text{
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <a href="home.html">Back to Home</a>
+  <h2>Order Now</h2>
+
+  <div class="payment-methods">
+    <div class="payment-method">
+      <img src="assets/BKash-bKash-Logo.wine.svg" alt="bKash">
+      <p>bKash</p>
+    </div>
+    <div class="payment-method">
+      <img src="assets/Nagad-Logo.wine.svg" alt="Nagad">
+      <p>Nagad</p>
+    </div>
+
+    <div class="payment-method">
+      <img src="assets/Upay_logo.svg" alt="Upay">
+      <p>Upay</p>
+    </div>
+  </div>
+
+  <form id="paymentForm">
+    <label for="paymentMethod">পেমেন্ট পদ্ধতি নির্বাচন করুন:</label>
+    <select id="itemSelector" onchange="filterItem()">
+      <option value="">--- Select Payment Method ---</option>
+      <option value="bkash">bKash</option>
+      <option value="nagad">Nagad</option>
+      <option value="upay">Upay</option>
+    </select>
+
+    <label for="amount">টাকার পরিমাণ (৳):</label>
+    <input type="number" id="amount" placeholder="টাকার পরিমান লিখুন" required>
+
+    <label for="transactionId">লেনদেন আইডি (Transaction ID):</label>
+    <input type="text" id="transactionId" placeholder="ট্রানজেকশন আইডি কপি করে এখানে বসান " required>
+
+    <label for="senderNumber">প্রেরকের মোবাইল নম্বর:</label>
+    <input type="text" id="senderNumber" placeholder="যে নাম্বার থেকে টাকা পাঠিয়েছেন" required>
+
+    <button type="submit">Verify Now</button>
+  </form>
+
+  <div id="bkash" class="item">
+    <div class="instructions">
+    <h3 class="bkash-payment-text">---bKash পেমেন্ট নির্দেশনা---</h3>
+    <p>আপনার নির্বাচিত bKash পেমেন্ট পদ্ধতির মাধ্যমে নিম্নোক্ত নম্বরে টাকা পাঠান:</p>
+    <ul>
+      <li><strong>bKash :</strong> 01818601638</li>
+    </ul>
+
+    <p>☞ *247# ডায়াল করে আপনার BKASH মোবাইল মেনুতে যান।</p>
+    <p>☞ অথবা BKASH অ্যাপে যান।</p>
+    <p>☞ "Send Money" -এ ক্লিক করুন।</p>
+    <p>☞ প্রাপক নম্বর হিসেবে এই নম্বরটি লিখুনঃ "01818601638" ।</p>
+    <p>☞ প্যাকেজ এর দাম কত ভালো ভাবে দেখে টাকার পরিমাণ লিখুন।</p>
+    <p>☞ নিশ্চিত করতে এখন আপনার BKASH মোবাইল মেনু পিন লিখুন।</p>
+    <p>☞ সবকিছু ঠিক থাকলে BKASH থেকে একটি নিশ্চিতকরণ বার্তা পাবেন।</p>
+    <p>☞ পেমেন্ট সম্পন্ন করার পর উপরের ফর্মটি সঠিক ভাবে পূরণ করুন।</p>
+    <p>☞ এখন উপরের বক্সে আপনার Transaction ID দিন এবং নিচের Verify Now বাটনে ক্লিক করুন।</p>
+  </div>
+  </div>
+
+  <div id="nagad" class="item">
+    <div class="instructions">
+    <h3 class="bkash-payment-text">---Nagad পেমেন্ট নির্দেশনা---</h3>
+    <p>আপনার নির্বাচিত Nagad পেমেন্ট পদ্ধতির মাধ্যমে নিম্নোক্ত নম্বরে টাকা পাঠান:</p>
+    <ul>
+      <li><strong>Nagad :</strong> 01818601638</li>
+    </ul>
+
+    <p>☞ *167# ডায়াল করে আপনার Nagad মোবাইল মেনুতে যান।</p>
+    <p>☞ অথবা Nagad অ্যাপে যান।</p>
+    <p>☞ "Send Money" -এ ক্লিক করুন।</p>
+    <p>☞ প্রাপক নম্বর হিসেবে এই নম্বরটি লিখুনঃ "01818601638" ।</p>
+    <p>☞ প্যাকেজ এর দাম কত ভালো ভাবে দেখে টাকার পরিমাণ লিখুন।</p>
+    <p>☞ নিশ্চিত করতে এখন আপনার Nagad মোবাইল মেনু পিন লিখুন।</p>
+    <p>☞ সবকিছু ঠিক থাকলে Nagad থেকে একটি নিশ্চিতকরণ বার্তা পাবেন।</p>
+    <p>☞ পেমেন্ট সম্পন্ন করার পর উপরের ফর্মটি সঠিক ভাবে পূরণ করুন।</p>
+    <p>☞ এখন উপরের বক্সে আপনার Transaction ID দিন এবং নিচের Verify Now বাটনে ক্লিক করুন।</p>
+  </div>
+  </div>
+
+  <div id="upay" class="item">
+    <div class="instructions">
+      <h3 class="bkash-payment-text">---Upay পেমেন্ট নির্দেশনা---</h3>
+      <p>আপনার নির্বাচিত Upay পেমেন্ট পদ্ধতির মাধ্যমে নিম্নোক্ত নম্বরে টাকা পাঠান:</p>
+      <ul>
+        <li><strong>Upay :</strong> 01818601638</li>
+      </ul>
+
+      <p>☞ *268# ডায়াল করে আপনার Upay মোবাইল মেনুতে যান।</p>
+      <p>☞ অথবা Upay অ্যাপে যান।</p>
+      <p>☞ "Send Money" -এ ক্লিক করুন।</p>
+      <p>☞ প্রাপক নম্বর হিসেবে এই নম্বরটি লিখুনঃ "01818601638" ।</p>
+      <p>☞ প্যাকেজ এর দাম কত ভালো ভাবে দেখে টাকার পরিমাণ লিখুন।</p>
+      <p>☞ নিশ্চিত করতে এখন আপনার Upay মোবাইল মেনু পিন লিখুন।</p>
+      <p>☞ সবকিছু ঠিক থাকলে Upay থেকে একটি নিশ্চিতকরণ বার্তা পাবেন।</p>
+      <p>☞ পেমেন্ট সম্পন্ন করার পর উপরের ফর্মটি সঠিক ভাবে পূরণ করুন।</p>
+      <p>☞ এখন উপরের বক্সে আপনার Transaction ID দিন এবং নিচের Verify Now বাটনে ক্লিক করুন।</p>
+    </div>
+  </div>
+
+  <!-- <div class="instructions">
+    <h3 class="bkash-payment-text">---bKash পেমেন্ট নির্দেশনা---</h3>
+    <p>আপনার নির্বাচিত bKash পেমেন্ট পদ্ধতির মাধ্যমে নিম্নোক্ত নম্বরে টাকা পাঠান:</p>
+    <ul>
+      <li><strong>bKash :</strong> 01818601638</li>
+      <li><strong>Nagad :</strong> 01818601638</li>
+      <li><strong>Upay :</strong> 01818601638</li>
+    </ul>
+
+    <p>☞ *247# ডায়াল করে আপনার BKASH মোবাইল মেনুতে যান।</p>
+    <p>☞ অথবা BKASH অ্যাপে যান।</p>
+    <p>☞ "Send Money" -এ ক্লিক করুন।</p>
+    <p>☞ প্রাপক নম্বর হিসেবে এই নম্বরটি লিখুনঃ "01818601638" ।</p>
+    <p>☞ প্যাকেজ এর দাম কত ভালো ভাবে দেখে টাকার পরিমাণ লিখুন।</p>
+    <p>☞ নিশ্চিত করতে এখন আপনার BKASH মোবাইল মেনু পিন লিখুন।</p>
+    <p>☞ সবকিছু ঠিক থাকলে BKASH থেকে একটি নিশ্চিতকরণ বার্তা পাবেন।</p>
+    <p>☞ পেমেন্ট সম্পন্ন করার পর উপরের ফর্মটি সঠিক ভাবে পূরণ করুন।</p>
+    <p>☞ এখন উপরের বক্সে আপনার Transaction ID দিন এবং নিচের Verify Now বাটনে ক্লিক করুন।</p>
+  </div> -->
+  
+</div>
+
+
+
+  <script>
+function filterItem() {
+  const selected = document.getElementById('itemSelector').value;
+  const items = ['bkash', 'nagad', 'upay'];
+
+  items.forEach(id => {
+    document.getElementById(id).style.display = (id === selected) ? 'block' : 'none';
+  });
+}
+
+</script>
+
+</body>
+</html>

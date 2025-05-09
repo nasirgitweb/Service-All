@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Subscription Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+  <div class="menu" id="menuToggle" onclick="toggleMenu()">≡</div>
+  <!-- <div class="logo">NIRJON</div> -->
+   <a class="logo" href="home.html">NIRJON</a>
+  <div class="icon-box">🛒<sup>➊</sup></div>
+  <!-- <div class="icon-box">অ</div> -->
+  <!-- <div class="icon-box">লগইন</div> -->
+</div>
+<!-- <nav class="nav" id="menu">
+  <ul>
+     <li><a href="home.html">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Services</a></li>
+  </ul>
+</nav> -->
+
+
+
+
+<!-- Main Content -->
+<div class="container">
+  <div class="badge">⭐Premium Services</div>
+  <h2 class="title">সার্ভিস সমূহ</h2>
+  <p class="subtitle">৪ কোর্স</p>
+
+  <label class="plan">
+    <div class="plan-info">
+      <input type="radio" name="plan" value="ফেসবুক" checked onclick="updatePlan('ফেসবুক', 4390)" />
+      <div class="lekha">
+        <div><strong>ফেসবুক মনিটাইজেশন</strong></div>
+        <div style="font-size: 14px;">৳ ২৬০ ডিসকাউন্ট</div>
+      </div>
+    </div>
+    <div class="price-info">
+      <div class="discount">৳ ৪৬৫০</div>
+      <div class="final-price">৳ ৪৩৯০</div>
+    </div>
+  </label>
+
+  <label class="plan">
+    <div class="plan-info">
+      <input type="radio" name="plan" value="ইউটিউব" onclick="updatePlan('ইউটিউব', 15500)" />
+      <div class="lekha">
+        <div><strong>ইউটিউব মনিটাইজেশন</strong></div>
+        <div style="font-size: 14px;">৳ ৩০০০ ডিসকাউন্ট</div>
+      </div>
+    </div>
+    <div class="price-info">
+      <div class="discount">৳ ১৮,৫০০</div>
+      <div class="final-price">৳ ১৫,৫০০</div>
+    </div>
+  </label>
+
+  <label class="plan">
+    <div class="plan-info">
+      <input type="radio" name="plan" value="ইউটিউব" onclick="updatePlan('-----', 15500)" />
+      <div class="lekha">
+        <div><strong>-----------</strong></div>
+        <div style="font-size: 14px;">৳ ৩০০০ ডিসকাউন্ট</div>
+      </div>
+    </div>
+    <div class="price-info">
+      <div class="discount">৳ ১৮,৫০০</div>
+      <div class="final-price">৳ ১৫,৫০০</div>
+    </div>
+  </label>
+   <!-- -----------ata faka thakbe---------- -->
+
+  <!-- <label class="plan">
+    <div class="plan-info">
+      <input type="radio" name="plan" value="ইউটিউব" onclick="updatePlan('ইউটিউব', 15500)" />
+      <div class="lekha">
+      </div>
+    </div>
+    <div class="price-info">
+    </div>
+  </label> -->
+
+  <!-- -----------ata faka thakbe---------- -->
+
+
+</div>
+
+<!-- Footer -->
+<div class="footer">
+
+  <footer class="footer2">
+    © All right reserved <br> by <a href="home.html">NIRJON.</a>
+  </footer>
+
+  <div id="selectedPlan">ফেসবুক<br>৳ 4390</div>
+  <a class="subscribe-btn" target="_blank" href="order.html">Order →</a>
+  
+</div>
+
+
+<script>
+  function updatePlan(duration, price) {
+    document.getElementById("selectedPlan").innerHTML = `${duration}<br>৳${price}`;
+  }
+</script>
+<script src="script.js"></script>
+
+</body>
+</html>
