@@ -67,6 +67,7 @@ body {
 /* Main Section */
 .container {
   padding: 20px;
+  height: auto;
   max-width: 400px;
   margin: auto;
   text-align: center;
@@ -97,6 +98,7 @@ body {
   color: #ccc;
   margin-bottom: 30px;
 }
+
 
 .plan {
   background: linear-gradient(90deg, #0f1c33, #071223);
@@ -139,23 +141,8 @@ body {
   color: #ffffff;
 }
 
-/* Footer */
-.footer {
-  background-color: rgb(0, 136, 141);
-  color: black;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  font-weight: bold;
-}
-
-.footer2{
-  font-size: 10px;
+#selectedPlan{
+  color: #ffffff;
 }
 
 .subscribe-btn {
@@ -181,5 +168,5 @@ body {
 #selectedPlan{
   text-align: center;
   align-items: center;
-  color: #000000;
+  color: aqua;
 }
